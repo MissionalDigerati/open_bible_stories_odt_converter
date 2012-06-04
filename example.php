@@ -22,6 +22,5 @@
  */
 require 'lib/open_bible_odt_converter.php';
 $fileGenerator = new FileGenerator('http://en.door43.org/wiki/Stories:The%20Creation?action=render');
-$generatedFile = $fileGenerator->create();
-puts $generatedFile;
+$fileGenerator->create("example_files/completed/the_creation.html");
 ?>

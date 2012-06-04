@@ -50,18 +50,32 @@ class FileGenerator {
 	 * Create the new file according to the specs of Open Bible Stories
 	 *
 	 * @access public
+	 * @var string finalFile the path and name of the final file.
 	 * @author Johnathan Pulos
 	 */
-	public function create() {
+	public function create($finalFile) {
 		$this->switchImages();
-		return $this->domElement;
+		$this->generate($finalFile);
+	}
+	
+	/**
+	 * Generates the final file
+	 *
+	 * @access private
+	 * @var string finalFile the path and name of the final file.
+	 * @author Johnathan Pulos
+	 */
+	private function generate($finalFile) {
+		$fh = fopen($finalFile, "w") or die("can't open file");
+		fwrite($fh, $this->domElement);
+		fclose($fh);
 	}
 	
 	/**
 	 * Switch the current images with high res prepared images
 	 *
 	 * @return void
-	 * @access public
+	 * @access private
 	 * @author Johnathan Pulos
 	 */
 	private function switchImages() {
