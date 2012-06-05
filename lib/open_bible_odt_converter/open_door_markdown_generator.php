@@ -45,7 +45,7 @@ class OpenDoorMarkdownGenerator {
 	public $finalFileContents = '';
 	
 	/**
-	 * The location of the high res prepared images
+	 * The location of the high res prepared images.  This must be an absolute path
 	 *
 	 * @var string
 	 * @access public

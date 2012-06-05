@@ -23,10 +23,11 @@
  * 
  */
 /**
- * Requires PHP 5.0 > & Uses the {@link http://simplehtmldom.sourceforge.net/ Simple HTML DOM Parser}
+ * Requires PHP 5.0 > & Uses the {@link http://simplehtmldom.sourceforge.net/ Simple HTML DOM Parser} & {@link http://johnmacfarlane.net/pandoc Pandoc Library}
  *
  * @author Johnathan Pulos
  */
 require 'vendor/simple_html_dom/simple_html_dom.php';
 require 'open_bible_odt_converter/open_door_markdown_generator.php';
+require 'open_bible_odt_converter/odt_converter.php';
 ?>

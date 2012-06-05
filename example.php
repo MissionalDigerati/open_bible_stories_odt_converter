@@ -22,6 +22,8 @@
  */
 require 'lib/open_bible_odt_converter.php';
 $mdGenerator = new OpenDoorMarkdownGenerator('http://en.door43.org/wiki/Stories:The%20Compassionate%20Father?action=render#2');
-$mdGenerator->imageDir = 'example_files/processed_images/';
+$mdGenerator->imageDir = '/Users/Technoguru/Sites/php/open_bible_stories/open_bible_odt_converter/example_files/processed_images/';
 $mdGenerator->create("The Creation", "example_files/completed/the_creation.md");
+$odtConverter = new ODTConverter();
+$odtConverter->convert('example_files/completed/the_creation.md', 'example_files/completed/the_creation.odt', 'example_files/templates/obs-book-template.odt');
 ?>
