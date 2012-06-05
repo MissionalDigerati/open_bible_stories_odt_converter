@@ -28,5 +28,5 @@
  * @author Johnathan Pulos
  */
 require 'vendor/simple_html_dom/simple_html_dom.php';
-require 'open_bible_odt_converter/file_generator.php';
+require 'open_bible_odt_converter/open_door_markdown_generator.php';
 ?>

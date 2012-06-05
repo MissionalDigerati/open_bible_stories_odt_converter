@@ -21,6 +21,7 @@
  * 
  */
 require 'lib/open_bible_odt_converter.php';
-$fileGenerator = new FileGenerator('http://en.door43.org/wiki/Stories:The%20Creation?action=render');
-$fileGenerator->create("example_files/completed/the_creation.html");
+$mdGenerator = new OpenDoorMarkdownGenerator('http://en.door43.org/wiki/Stories:The%20Compassionate%20Father?action=render#2');
+$mdGenerator->imageDir = 'example_files/processed_images/';
+$mdGenerator->create("The Creation", "example_files/completed/the_creation.md");
 ?>
