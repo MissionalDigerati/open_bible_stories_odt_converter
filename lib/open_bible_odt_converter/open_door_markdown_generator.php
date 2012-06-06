@@ -21,10 +21,11 @@
  * 
  */
 /**
- * This class generates a {@link http://daringfireball.net/projects/markdown/ Markdown} file from the given HTML Open Door file.  The markdown layout was defined
- * by the Open Door Project.  
+ * This class generates a {@link http://daringfireball.net/projects/markdown/ Markdown} file from the given HTML Open Door file. 
+ * The markdown layout was defined by the Open Door Project.
  * Requires PHP 5.0 > & Uses the {@link http://simplehtmldom.sourceforge.net/ Simple HTML DOM Parser}
  *
+ * @package Open Bible ODT Converter
  * @author Johnathan Pulos
  */
 class OpenDoorMarkdownGenerator {

@@ -21,10 +21,10 @@
  * 
  */
 /**
- * Converts the file into a ODT file using pandoc library.
+ * Converts the file into a ODT file using pandoc library and the shell.
  * Requires PHP > 5 & {@link http://johnmacfarlane.net/pandoc Pandoc Library}
  *
- * @package default
+ * @package Open Bible ODT Converter
  * @author Johnathan Pulos
  */
 class ODTConverter {

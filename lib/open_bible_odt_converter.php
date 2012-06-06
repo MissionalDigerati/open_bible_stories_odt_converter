@@ -23,8 +23,10 @@
  * 
  */
 /**
- * Requires PHP 5.0 > & Uses the {@link http://simplehtmldom.sourceforge.net/ Simple HTML DOM Parser} & {@link http://johnmacfarlane.net/pandoc Pandoc Library}
+ * Requires PHP 5.0 > & Uses the {@link http://simplehtmldom.sourceforge.net/ Simple HTML DOM Parser} & 
+ * {@link http://johnmacfarlane.net/pandoc Pandoc Library}
  *
+ * @package Open Bible ODT Converter
  * @author Johnathan Pulos
  */
 require 'vendor/simple_html_dom/simple_html_dom.php';
