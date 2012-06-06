@@ -1,7 +1,7 @@
 Open Bible ODT Converter
 ========================
 
-This PHP library is designed to take the [Open Bible Stories](http://www.openbiblestories.com/) and convert them into a nicely formatted ODT file.  It grabs the HTML, swaps out the images for higher quality images,  creates a nicely formatted document for converting, and converts it to ODT. 
+This PHP library is designed to take the [Open Bible Stories](http://www.openbiblestories.com/) and convert them into a nicely formatted ODT file.  It grabs the HTML, swaps out the images for higher quality images,  creates a nicely formatted Markdown document for converting, and converts it to ODT. 
 
 Requirements
 ------------
