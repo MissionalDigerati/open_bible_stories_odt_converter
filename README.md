@@ -20,7 +20,7 @@ From the command line,  change to the root directory of the project.  Verify tha
 Usage
 -----
 
-You will first need to prepare the images.  Images use the following format: OBS-{open bible id}-{incremental with leading zero}.jpg.  The incremental represents the position on the page (top to bottom) for the image starting including a leading zero.  Once prepared, you can run the following command in the command line:
+You will first need to prepare the images.  Images use the following format: *OBS-{open bible id}-{incremental with leading zero}.jpg*.  The incremental represents the position on the page (top to bottom) for the image starting including a leading zero.  Once prepared, you can run the following command in the command line:
 
 `php example.php {url} {open_bible_id} {title}`
 
