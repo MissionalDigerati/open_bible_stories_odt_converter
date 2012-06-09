@@ -1,7 +1,7 @@
 Open Bible ODT Converter
 ========================
 
-This PHP library is designed to take the [Open Bible Stories](http://www.openbiblestories.com/) and convert them into a nicely formatted ODT file.  It grabs the HTML, swaps out the images for higher quality images,  creates a nicely formatted Markdown document for converting, and converts it to ODT. 
+This PHP library converts a [Open Bible Stories](http://www.openbiblestories.com/) story into a [Open Office](http://www.openoffice.org/) file.  It grabs the HTML from an Open Bible Stories web page like [The Compassionate Father](http://en.door43.org/wiki/Stories:The_Compassionate_Father#2).  It then replaces all the images with a set of prepared images, converts the new HTML to a Markdown file, and finally converts the document to an ODT file using a given template. 
 
 Requirements
 ------------
@@ -13,9 +13,21 @@ Requirements
 Running the Example
 -------------------
 
-From the terminal,  change to the root directory of this project.  Verify that you have correctly installed all the required libraries.  Run the following command:
+From the command line,  change to the root directory of the project.  Verify that you have correctly installed all the required libraries.  Run the following command:
 
-`php example.php`
+`php example.php http://pt.door43.org/w/index.php?title=Hist%C3%B3rias:O_Pai_Compassivo 23 "The Compassionate Father"`
+
+Usage
+-----
+
+You will first need to prepare the images.  Images use the following format: OBS-{open bible id}-{incremental with leading zero}.jpg.  The incremental represents the position on the page (top to bottom) for the image starting including a leading zero.  Once prepared, you can run the following command in the command line:
+
+`php example.php {url} {open_bible_id} {title}`
+
+* url - The web page url for the story (**required**)
+* open\_bible\_id - The Open Bible Id for the story (**required**)
+* title - The title for the document. *default: Open Bible Stories* (**optional**)
+
 
 Development
 -----------

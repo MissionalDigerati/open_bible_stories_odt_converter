@@ -52,29 +52,44 @@ class OpenDoorMarkdownGenerator {
 	 * @access public
 	 */
 	public $imageDir = 'images/';
+	/**
+	 * The Open Bible Id for the document
+	 *
+	 * @var integer
+	 */
+	public $openBibleId = 0;
+	/**
+	 * The title for the document
+	 *
+	 * @var string
+	 */
+	public $documentTitle = '';
 	
 	/**
-	 * Construct the class
+	 * Construct the class, and sets up important variables
 	 *
 	 * @access public
 	 * @param string $htmlFile the web location of the file to parse
+	 * @param integer $openId the Open Bible Id for the document
+	 * @param string $title The title for the document
 	 * @return void
 	 * @author Johnathan Pulos
 	 */
-	public function __construct($htmlFile) {
+	public function __construct($htmlFile, $openId, $title) {
 		$this->domElement = file_get_html($htmlFile);
+		$this->openBibleId = $openId;
+		$this->documentTitle = $title;
 	}
 	
 	/**
 	 * Create the new file according to the specs of Open Bible Stories
 	 *
 	 * @access public
-	 * @var string $title the title for this book
 	 * @var string $finalFile the path and name of the final file.
 	 * @author Johnathan Pulos
 	 */
-	public function create($title, $finalFile) {
-		$this->addTitle($title);
+	public function create($finalFile) {
+		$this->addTitle();
 		$this->addContent();
 		$this->generate($finalFile);
 	}
@@ -82,14 +97,13 @@ class OpenDoorMarkdownGenerator {
 	/**
 	 * Adds the title to the finalFileContents
 	 *
-	 * @param string $title the title of the book
 	 * @return void
 	 * @access private
 	 * @author Johnathan Pulos
 	 */
-	private function addTitle($title) {
-		$titleLength = strlen($title);
-		$this->finalFileContents .= $title . "\n";
+	private function addTitle() {
+		$titleLength = strlen($this->documentTitle);
+		$this->finalFileContents .= $this->documentTitle . "\n";
 		for ($i=0; $i < $titleLength; $i++) { 
 			$this->finalFileContents .= "=";
 		}
@@ -121,7 +135,7 @@ class OpenDoorMarkdownGenerator {
 				 */
 				foreach ($element->find('img') as $image) {
 					$imgCount = $imgCount+1;
-					$this->finalFileContents .= "![" . $image->alt . "](" . $this->imageDir . "OBS-23-" . sprintf("%02d",$imgCount) . ".jpg '" . $image->alt . "')\n";
+					$this->finalFileContents .= "![" . $image->alt . "](" . $this->imageDir . "OBS-".$this->openBibleId."-" . sprintf("%02d",$imgCount) . ".jpg '" . $image->alt . "')\n";
 				}
 			}
 		}

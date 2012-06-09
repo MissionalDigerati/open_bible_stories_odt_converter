@@ -19,17 +19,46 @@
  * @author Johnathan Pulos <johnathan@missionaldigerati.org>
  * @copyright Copyright 2012 Missional Digerati
  * 
+ * To run an example,  just type the following command in the commandline
+ * php example.php http://pt.door43.org/w/index.php?title=Hist%C3%B3rias:O_Pai_Compassivo 23 "The Compassionate Father"
+ * If your title has spaces, then make sure to wrap in quotes
+ *
+ * @author Johnathan Pulos
  */
 require 'lib/open_bible_odt_converter.php';
-//$mdGenerator = new OpenDoorMarkdownGenerator('http://en.door43.org/wiki/Stories:The%20Compassionate%20Father?action=render#2');
-$mdGenerator = new OpenDoorMarkdownGenerator('http://pt.door43.org/w/index.php?title=Hist%C3%B3rias:O_Pai_Compassivo');
+/**
+ * Catch the arguments sent through command line, and setup the variables
+ *
+ * @author Johnathan Pulos
+ */
+if($argc < 3) {
+	echo "usage: php example.php {url:required} {open_bible_id:required} {title:optional}\r\n";
+	echo "title - defaults to Open Bible Stories\r\n";
+	exit;
+}
+$url = $argv[1];
+$openId = $argv[2];
+$title = (isset($argv[3])) ? $argv[3]: "Open Bible Stories";
+$fileTitle = str_replace(" ", "_", strtolower(ereg_replace("[^A-Za-z0-9 ]", "", $title)));
+/**
+ * Let's generate a Markdown file
+ *
+ * @author Johnathan Pulos
+ */
+$mdGenerator = new OpenDoorMarkdownGenerator($url, $openId, $title);
 /**
  * This link must be absolute
  *
  * @author Johnathan Pulos
  */
 $mdGenerator->imageDir = '/Users/Technoguru/Sites/php/open_bible_stories/open_bible_odt_converter/example_files/processed_images/';
-$mdGenerator->create("Histórias:O Pai Compassivo", "example_files/completed/the_compassionate_father.md");
+$mdGenerator->create("example_files/completed/".$fileTitle.".md");
+/**
+ * Create the ODT document now that we have a Markdown File
+ *
+ * @author Johnathan Pulos
+ */
 $odtConverter = new ODTConverter();
-$odtConverter->convert('example_files/completed/the_compassionate_father.md', 'example_files/completed/the_compassionate_father.odt', 'example_files/templates/obs-book-template.odt');
+$odtConverter->convert('example_files/completed/'.$fileTitle.'.md', 'example_files/completed/'.$fileTitle.'.odt', 'example_files/templates/obs-book-template.odt');
+echo "Your file is complete: example_files/completed/".$fileTitle.".odt\r\n";
 ?>
