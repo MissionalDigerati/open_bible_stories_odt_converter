@@ -39,7 +39,14 @@ if($argc < 3) {
 $url = $argv[1];
 $openId = $argv[2];
 $title = (isset($argv[3])) ? $argv[3]: "Open Bible Stories";
-$fileTitle = str_replace(" ", "_", strtolower(ereg_replace("[^A-Za-z0-9 ]", "", $title)));
+/**
+ * File Title should be obs-{openID}-{language code}.odt
+ *
+ * @author Johnathan Pulos
+ */
+preg_match("/http:\/\/(\w*)\./", $url, $matches);
+$langCode = (array_key_exists(1, $matches)) ? $matches[1] : 'nolang';
+$fileTitle = "obs-".$openId."-".$langCode;
 /**
  * Let's generate a Markdown file
  *
