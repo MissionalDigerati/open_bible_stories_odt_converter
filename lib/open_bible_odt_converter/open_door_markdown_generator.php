@@ -119,6 +119,7 @@ class OpenDoorMarkdownGenerator {
 	 */
 	private function addContent() {
 		$imgCount = 0;
+		$textCount = 1;
 		foreach($this->domElement->find('div[class=storytext] > p') as $element) {
 			if (count($element->find('img')) == 0) {
 				/**
@@ -126,7 +127,16 @@ class OpenDoorMarkdownGenerator {
 				 *
 				 * @author Johnathan Pulos
 				 */
-				$this->finalFileContents .= $element->plaintext . "\n";
+				$this->finalFileContents .=  strip_tags(trim($element->plaintext)) . "\n";
+				if($textCount%2) {
+					/**
+					 * Add a space after each odd number text
+					 *
+					 * @author Johnathan Pulos
+					 */
+					$this->finalFileContents .=  "\r\n";
+				}
+				$textCount = $textCount+1;
 			}else {
 				/**
 				 * Dealing with an image
