@@ -77,7 +77,7 @@ class OpenDoorMarkdownGenerator {
 	 */
 	public function __construct($htmlFile, $openId, $title) {
 		$this->domElement = file_get_html($htmlFile);
-		$this->openBibleId = $openId;
+		$this->openBibleId = sprintf("%02d", $openId);
 		$this->documentTitle = $title;
 	}
 	
